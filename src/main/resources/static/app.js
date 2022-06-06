@@ -38,6 +38,11 @@ function sendMessage() {
     stompClient.send("/app/input", {}, JSON.stringify({
         'username': $("#username").val(), 'body': $("#body").val()
     }));
+
+    // https://stackoverflow.com/questions/8701812/clear-form-after-submission-with-jquery
+    $('#websocketform').each(function () {
+        this.reset();
+    });
 }
 
 function showMessage(user, message) {
